@@ -3,16 +3,12 @@ package com.example.project;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
-import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -21,12 +17,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.Locale;
 
 public class ServerActivity extends AppCompatActivity {
     private EditText messageText;
     private ListView messegeList;
-    private DatabaseReference database;
+
     DatabaseReference myRef;
 
 
@@ -49,8 +44,9 @@ public class ServerActivity extends AppCompatActivity {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+
                 messegeArr.add(snapshot.getValue().toString());
-                Log.d("bla", snapshot.getValue().toString());
+
                 adapter.notifyDataSetChanged();
             }
 
@@ -60,8 +56,6 @@ public class ServerActivity extends AppCompatActivity {
             }
         });
 
-
-
     }
 
     public  void onClickSend(View view){
@@ -69,6 +63,10 @@ public class ServerActivity extends AppCompatActivity {
         myRef.setValue(message);
 
 
+    }
+    public void goHome(View view){
+        Intent intent = new Intent(this,VuborActivity.class);
+        startActivity(intent);
     }
 
 
