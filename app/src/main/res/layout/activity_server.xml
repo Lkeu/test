@@ -10,6 +10,7 @@
         android:id="@+id/linearLayout"
         android:layout_width="385dp"
         android:layout_height="59dp"
+        android:layout_marginBottom="52dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,23 +22,34 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="text"
-            android:text="Text" />
+            android:inputType="text" />
 
         <Button
             android:id="@+id/send_but"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="@color/buttos"
             android:onClick="onClickSend"
-            android:text="Button" />
+            android:text="Send" />
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/chatView"
-        android:layout_width="match_parent"
-        android:layout_height="600dp"
-        android:text="TextView"
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/buttos"
+        android:onClick="goHome"
+        android:text="Назад"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <ListView
+        android:id="@+id/messageList"
+        android:layout_width="409dp"
+        android:layout_height="550dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
